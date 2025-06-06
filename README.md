@@ -36,7 +36,7 @@ The objective is to showcase end-to-end customer segmentation pipeline, from cle
 - Period: 2010–2011 UK ecommerce transactions
 
 ### 2. 📥 Data Cleaning & Preparation
-- Loaded 2010–2011 **UK-based online retail transactions**
+- Loaded raw Excel 2010–2011 **UK-based online retail transactions**
 - Removed:
   - Canceled orders (`InvoiceNo` starting with `'C'`)
   - Nulls and duplicates
