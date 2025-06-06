@@ -101,7 +101,7 @@ Available in `/visuals/dashboard_preview.png`
 
 - 🏆 Cluster 2 (Champions) spends **£71,000+** with **60+ orders**
 - 📉 Cluster 0 (Churn Risk) has **low frequency & high recency**
-- 🔍 RFM segmentation enables **personalized campaigns** and Customer Lifetime Value(**LTV targeting**)
+- 🔍 RFM segmentation enables **personalized campaigns** and **Customer Lifetime Value(LTV targeting)**
 - 🎯 The dashboard simulates deliverables expected in real-world analyst roles
 
 ---
