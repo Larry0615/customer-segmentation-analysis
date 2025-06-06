@@ -53,7 +53,7 @@ The objective is to showcase end-to-end customer segmentation pipeline, from cle
   - **Recency**: Days since last purchase
   - **Frequency**: Number of purchases
   - **Monetary**: Total amount spent
-- Used reference date of `Dec 10, 2011`
+- Used reference date of `Dec 9, 2011`
 - Applied **StandardScaler** for normalization
 
 ### 4. 🤖 Unsupervised Clustering (KMeans)
