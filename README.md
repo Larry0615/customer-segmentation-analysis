@@ -1,18 +1,18 @@
 # 🧠 Customer Segmentation (Python + Power BI | 2025)
 
 📌 **Project Overview**  
-This project applies RFM analysis and unsupervised clustering (KMeans) on real-world ecommerce data (Online Retail II), with the goal of segmenting customers based on behavior and visualizing insights using Power BI.
+This project applies RFM analysis and unsupervised machine learning (KMeans clustering ) on real-world ecommerce data (Online Retail II), with the goal of segmenting customers based on behavior and visualizing insights using Power BI.
 
-The objective is to showcase end-to-end data storytelling, from cleaning to modeling to dashboard design, simulating how analysts deliver insights for marketing teams or product strategy.
+The objective is to showcase end-to-end customer segmentation pipeline, from cleaning to modeling to dashboard design, simulating how analysts deliver insights for marketing teams or product strategy.
 
 ---
 
 ## 🔍 Business Questions
 
 - 🧾 Who are our most valuable customers?
-- 🧲 How can we identify churn-prone or low-value segments?
-- 🛒 Are there clear clusters of behavior based on RFM metrics?
-- 📊 How can we visualize customer segments to support targeted campaigns?
+- 🧲 How can we identify customers at risk of churning?
+- 🧬 Can we group customers into distinct behavioral clusters?
+- 📣 How can we tailor marketing actions based on customer types?
 
 ---
 
@@ -22,7 +22,8 @@ The objective is to showcase end-to-end data storytelling, from cleaning to mode
 |----------------|-------------------------------------------|
 | Python         | Data cleaning, feature engineering        |
 | Pandas, NumPy  | Data wrangling                            |
-| Scikit-learn   | Clustering with KMeans                    |
+| Matplotlib     | Exploratory data visualization            |
+| Scikit-learn   | Clustering with KMeans, Silhouette scoring|
 | Power BI       | Dashboard visualization                   |
 | Git & GitHub   | Version control + public portfolio        |
 
@@ -30,58 +31,86 @@ The objective is to showcase end-to-end data storytelling, from cleaning to mode
 
 ## 📊 Project Workflow
 
-### 1. **Data Collection & Cleaning**
+### 1. **Data Collection**
 - Source: [UCI Online Retail II Dataset](https://archive.ics.uci.edu/ml/datasets/Online+Retail+II)
 - Period: 2010–2011 UK ecommerce transactions
-- Removed nulls, returns (invoices starting with "C"), and outliers
-- Created `TotalPrice = Quantity * UnitPrice`
-- Filtered for `Country = United Kingdom`
 
-### 2. **RFM Feature Engineering**
-- Calculated **Recency, Frequency, Monetary** for each customer
-- Normalized metrics for modeling
+### 2. 📥 Data Cleaning & Preparation
+- Loaded 2010–2011 **UK-based online retail transactions**
+- Removed:
+  - Canceled orders (`InvoiceNo` starting with `'C'`)
+  - Nulls and duplicates
+  - Non-positive quantities or prices
+- Created:
+  - `TotalPrice = Quantity * UnitPrice`
+  - Cleaned dataset with `CustomerID` as unique identifier
+- Filtered:
+  - `Country = United Kingdom`
 
-### 3. **Clustering & Insights**
+### 3. 🧮 RFM Feature Engineering
+- Calculated:
+  - **Recency**: Days since last purchase
+  - **Frequency**: Number of purchases
+  - **Monetary**: Total amount spent
+- Used reference date of `Dec 10, 2011`
+- Applied **StandardScaler** for normalization
+
+### 4. 🤖 Unsupervised Clustering (KMeans)
 - Applied **KMeans clustering** to RFM data
-- Evaluated optimal clusters (Elbow Method + Silhouette Score)
-- Interpreted cluster profiles (high-value vs. at-risk, etc.)
+- Used **Elbow Method** to find optimal cluster count (k=4)
+- Verified cluster quality with **Silhouette Score**
+- Assigned cluster labels(0,1,2,3) to customer profiles
+- Generated final labeled dataset: `rfm_with_segments.csv`
 
-### 4. **Dashboard Design (Power BI)**
-- Visuals:
-  - Cluster summary cards
-  - Segment distribution by value
-  - RFM distributions per cluster
-- Filters:
-  - Segment dropdown
-  - Monetary range slider
+### 5. 📊 Power BI Dashboard
+- Imported final dataset and built:
+  - 📈 **Bar chart**: Customer count by segment
+  - 📌 **KPI Cards**: Avg. Recency (days), Frequency (orders), Monetary (£)
+  - 🎨 Color-coded segments for visual clarity
+  - 🎛️ Dropdown filter for customer segments
+- Dashboard title, tooltips, and custom formatting added
+- Saved `.pbix` file for reproducibility
 
 ---
 
-## 📈 Final Dashboard
+## 🧠 Final Customer Segments
 
-🔗 **Live Dashboard (Power BI)**  
-(*Coming soon – link to Power BI Service or screenshot preview*)
+| Segment Label        | Description                                               |
+|----------------------|-----------------------------------------------------------|
+| **Champion**         | Recent, frequent, and high spenders (top 1%)              |
+| **Loyal**            | Regular repeat customers with decent monetary value       |
+| **Potential Loyalist** | Moderate recency/frequency, high growth potential       |
+| **Churn Risk**       | Long inactive, low value — may require reactivation       |
+
+---
+
+## 📊 Dashboard Preview
 
 📦 **Power BI File (`.pbix`)**  
-Located in `powerbi_dashboard/customer_segmentation.pbix`
+Located at: `powerbi_dashboard/customer_segmentation.pbix`
+
+🖼️ **Screenshot Preview**  
+Available in `/visuals/dashboard_preview.png`
+
+> ⚠️ Currently not published online due to Power BI Service limitations with personal accounts. All assets available locally in this repo.
 
 ---
 
-## 🧠 Key Insights
+## 📌 Key Takeaways
 
-- 🥇 Top cluster: high frequency, high monetary, low recency
-- ⚠️ At-risk customers: long recency, low frequency
-- 🧬 Clear distinction between 3 core segments
-- 📣 Business can tailor marketing to high-value + reactivation targets
+- 🏆 Cluster 2 (Champions) spends **£71,000+** with **60+ orders**
+- 📉 Cluster 0 (Churn Risk) has **low frequency & high recency**
+- 🔍 RFM segmentation enables **personalized campaigns** and **LTV targeting**
+- 🎯 The dashboard simulates deliverables expected in real-world analyst roles
 
 ---
 
-## 🚀 Future Work
+## 🚀 Future Enhancements
 
-- Add demographic dimensions (if available)
-- Deploy dashboard to Power BI service with refresh schedule
-- Explore time series patterns by invoice date
-- Use DBSCAN or Hierarchical clustering for comparison
+- Connect to live data and deploy to Power BI Service (when eligible)
+- Apply alternative clustering methods: **DBSCAN**, **Hierarchical**
+- Combine RFM with demographics or product-level features
+- Use DAX measures for dynamic aggregation and drilldowns
 
 ---
 
@@ -98,13 +127,19 @@ customer-segmentation-analysis/
 ├── powerbi_dashboard/
 │ └── customer_segmentation.pbix
 ├── visuals/
-│ └── dashboard_preview.png
+│ └── dashboard_snapshot.png
 └── README.md
 ```
 ---
-## 📬 Let’s Connect
+## 💼 About Me
 
-📫 I'm actively seeking **Data Analyst roles (UK or remote)**.  
-More projects: [github.com/Larry0615](https://github.com/Larry0615)
+📫 I'm **Olanrewaju Oyenekan**, actively seeking **Data Analyst roles (UK or remote)**.  
+This project reflects my capabilities in:
+- Data wrangling & modeling
+- Clustering algorithms & EDA
+- Storytelling with visual tools (Power BI, Tableau)
+
+🔗 [GitHub Portfolio](https://github.com/Larry0615)
 
 ---
+
