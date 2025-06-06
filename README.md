@@ -43,7 +43,8 @@ The objective is to showcase end-to-end customer segmentation pipeline, from cle
   - Non-positive quantities or prices
 - Created:
   - `TotalPrice = Quantity * UnitPrice`
-  - Cleaned dataset with `CustomerID` as unique identifier
+- Assigned:
+  - `CustomerID` as unique identifier
 - Filtered:
   - `Country = United Kingdom`
 
