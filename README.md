@@ -108,15 +108,15 @@ Available in `/visuals/dashboard_preview.png`
 
 ## 📢 Recommendations
 Based on the Segmentation Analysis: 
-- **. Nurture Loyal & Potential Loyalists**
+- **Nurture Loyal & Potential Loyalists**
 → Offer rewards, personalized offers, and early access to boost retention.
-- **. Re-engage Churn Risks**
+- **Re-engage Churn Risks**
 → Use targeted discounts and win-back emails to bring them back.
-- **. Delight Champions**
+- **Delight Champions**
 → Provide VIP perks and gather feedback to keep them engaged.
-- **. Track Segment Changes Over Time**
+- **Track Segment Changes Over Time**
 → Monitor shifts to measure marketing impact and customer lifecycle.
-- **. Use Segments in CRM Tools**
+- **Use Segments in CRM Tools**
 → Sync with Mailchimp, HubSpot, etc., for automated targeting.
 
 ---
