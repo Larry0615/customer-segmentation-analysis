@@ -149,7 +149,7 @@ customer-segmentation-analysis/
 ---
 ## 💼 About Me
 
-📫 I'm **Olanrewaju Oyenekan**, actively seeking **Data Analyst roles (UK or remote)**.  
+📫 I'm **Olanrewaju Oyenekan**, actively seeking **Data Analyst / Junior Data Scientist roles (UK or remote)**.  
 This project reflects my capabilities in:
 - Data wrangling & modeling
 - Clustering algorithms & EDA
